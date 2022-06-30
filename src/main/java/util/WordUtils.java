@@ -233,16 +233,45 @@ public class WordUtils {
         ;
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("ymdhis", DateUtils.getCurrentTime_yyyyMMddHHmmss());
-        dataMap.put("${supplierName}","werwrwqrqw");
-        dataMap.put("telephone","werwrwqrqw");
-        dataMap.put("purchaseMode","werwrwqrqw");
-        dataMap.put("industry","werwrwqrqw");
-        dataMap.put("serviceDomain","werwrwqrqw");
-        dataMap.put("generalDescription","werwrwqrqw");
-        dataMap.put("detail","werwrwqrqw");
-        dataMap.put("funcModule","werwrwqrqw");
-        dataMap.put("techParam","werwrwqrqw");
-        dataMap.put("serviceNeed","werwrwqrqw");
+        dataMap.put("programName","ThingJs-X智慧医院解决方案");
+        dataMap.put("supplierName","云知声");
+        dataMap.put("telephone","01234567892");
+        dataMap.put("purchaseMode","直采");
+        dataMap.put("industry","智慧医院");
+        dataMap.put("serviceDomain","大数据");
+        Map<String, List<String>> generalDescription = HtmlUtils.resolveHtmlLabel("<p>通过ThingJS-X数字孪生可视化平台打造的智慧医院运营管理系统，以“一平台三中心”为架构，助力医院实现信息聚合、数字建模，三维映射，搭建一个智能化数字空间，依托数据治理、知识图谱、轻量建模技术，提升医院运营管理效率。系统实现了面向医院物理实体和业务逻辑层面的全面融合连接，打造了动态感知、协</p><video src=\"http://47.100.208.16:8222/api/file/8efd73bd-f7bc-49e9-8df5-4c7961cb9002.2022-06-30.test.mp4\" controls=\"controls\" style=\"max-width:100%\"></video><p><br/></p><p>同高效、可视交互的现代智慧医院运营管理新方式。2112<span style=\"background-color: rgb(194, 79, 74);\"></span></p><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code class=\"Bash\">&lt;div&gt;迪马&lt;div&gt;</code></pre>");
+        dataMap.put("generalDescriptionP",generalDescription.get("p").toString());
+        List<String> picTypes = new ArrayList<>();
+        picTypes.add("jpg");
+        dataMap.put("picTypes", picTypes);
+        List<Map<String, String>> picList = new ArrayList<>();
+
+        Map<String, String> picMap = new HashMap<>();
+        // 要按顺序
+        picMap.put("path", picPath + "pic2.jpg");
+        picMap.put("name", "pic2.jpg");
+        picList.add(picMap);
+
+        dataMap.put("picList", picList);
+
+        //dataMap.put("generalDescriptionImg",generalDescription.get("img").toString());
+        //dataMap.put("generalDescriptionVideo",generalDescription.get("video").toString());
+        Map<String, List<String>> detail = HtmlUtils.resolveHtmlLabel("<p>通过ThingJS-X数字孪生可视化平台打造的智慧医院运营管理系统，以“一平台三中心”为架构，助力医院实现信息聚合、数字建模，三维映射，搭建一个智能化数字空间，依托数据治理、知识图谱、轻量建模技术，提升医院运营管理效率。系统实现了面向医院物理实体和业务逻辑层面的全面融合连接，打造了动态感知、协</p><video src=\"http://47.100.208.16:8222/api/file/8efd73bd-f7bc-49e9-8df5-4c7961cb9002.2022-06-30.test.mp4\" controls=\"controls\" style=\"max-width:100%\"></video><p><br/></p><p>同高效、可视交互的现代智慧医院运营管理新方式。2112<span style=\"background-color: rgb(194, 79, 74);\"></span></p><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code class=\"Bash\">&lt;div&gt;迪马&lt;div&gt;</code></pre>");
+        dataMap.put("detailP",generalDescription.get("p").toString());
+        //dataMap.put("detailImg",generalDescription.get("img").toString());
+        dataMap.put("detailVideo",generalDescription.get("video").toString());
+        Map<String, List<String>> funcModule = HtmlUtils.resolveHtmlLabel("<p>通过ThingJS-X数字孪生可视化平台打造的智慧医院运营管理系统，以“一平台三中心”为架构，助力医院实现信息聚合、数字建模，三维映射，搭建一个智能化数字空间，依托数据治理、知识图谱、轻量建模技术，提升医院运营管理效率。系统实现了面向医院物理实体和业务逻辑层面的全面融合连接，打造了动态感知、协</p><video src=\"http://47.100.208.16:8222/api/file/8efd73bd-f7bc-49e9-8df5-4c7961cb9002.2022-06-30.test.mp4\" controls=\"controls\" style=\"max-width:100%\"></video><p><br/></p><p>同高效、可视交互的现代智慧医院运营管理新方式。2112<span style=\"background-color: rgb(194, 79, 74);\"></span></p><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code class=\"Bash\">&lt;div&gt;迪马&lt;div&gt;</code></pre>");
+        dataMap.put("FuncModulep",generalDescription.get("p").toString());
+        dataMap.put("FuncModuleImg",generalDescription.get("img").toString());
+        dataMap.put("FuncModuleVideo",generalDescription.get("video").toString());
+        Map<String, List<String>> techParam = HtmlUtils.resolveHtmlLabel("<p>通过ThingJS-X数字孪生可视化平台打造的智慧医院运营管理系统，以“一平台三中心”为架构，助力医院实现信息聚合、数字建模，三维映射，搭建一个智能化数字空间，依托数据治理、知识图谱、轻量建模技术，提升医院运营管理效率。系统实现了面向医院物理实体和业务逻辑层面的全面融合连接，打造了动态感知、协</p><video src=\"http://47.100.208.16:8222/api/file/8efd73bd-f7bc-49e9-8df5-4c7961cb9002.2022-06-30.test.mp4\" controls=\"controls\" style=\"max-width:100%\"></video><p><br/></p><p>同高效、可视交互的现代智慧医院运营管理新方式。2112<span style=\"background-color: rgb(194, 79, 74);\"></span></p><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code class=\"Bash\">&lt;div&gt;迪马&lt;div&gt;</code></pre>");
+        dataMap.put("techParamp",generalDescription.get("p").toString());
+        dataMap.put("techParamimg",generalDescription.get("img").toString());
+        dataMap.put("techParamvideo",generalDescription.get("video").toString());
+        Map<String, List<String>> serviceNeed = HtmlUtils.resolveHtmlLabel("<p>通过ThingJS-X数字孪生可视化平台打造的智慧医院运营管理系统，以“一平台三中心”为架构，助力医院实现信息聚合、数字建模，三维映射，搭建一个智能化数字空间，依托数据治理、知识图谱、轻量建模技术，提升医院运营管理效率。系统实现了面向医院物理实体和业务逻辑层面的全面融合连接，打造了动态感知、协</p><video src=\"http://47.100.208.16:8222/api/file/8efd73bd-f7bc-49e9-8df5-4c7961cb9002.2022-06-30.test.mp4\" controls=\"controls\" style=\"max-width:100%\"></video><p><br/></p><p>同高效、可视交互的现代智慧医院运营管理新方式。2112<span style=\"background-color: rgb(194, 79, 74);\"></span></p><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code class=\"Bash\">&lt;div&gt;迪马&lt;div&gt;</code></pre>");
+        dataMap.put("serviceNeedp",generalDescription.get("p").toString());
+        dataMap.put("serviceNeedimg",generalDescription.get("img").toString());
+        dataMap.put("serviceNeedvideo",generalDescription.get("video").toString());
         String timeStr = DateUtils.getCurrentTime_yyyyMMddHHmmssSSS();
         String docxTemplateFile = "docTemplate.docx";
         String xmlDocument = "docTemplate.xml";
