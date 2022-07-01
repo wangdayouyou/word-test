@@ -248,8 +248,8 @@ public class WordUtils {
 
         Map<String, String> picMap = new HashMap<>();
         // 要按顺序
-        picMap.put("path", picPath + "pic2.jpg");
-        picMap.put("name", "pic2.jpg");
+        picMap.put("path", picPath + "pic1.jpg");
+        picMap.put("name", "pic1.jpg");
         picList.add(picMap);
 
         dataMap.put("picList", picList);
@@ -274,7 +274,7 @@ public class WordUtils {
         dataMap.put("serviceNeedvideo",generalDescription.get("video").toString());
         String timeStr = DateUtils.getCurrentTime_yyyyMMddHHmmssSSS();
         String docxTemplateFile = "docTemplate.docx";
-        String xmlDocument = "docTemplate.xml";
+        String xmlDocument = "document.xml";
         String xmlDocumentXmlRels = "document.xml.rels";
         String xmlContentTypes = "[Content_Types].xml";
         String xmlHeader = "header1.xml";//可以用来修改页眉的一些信息
