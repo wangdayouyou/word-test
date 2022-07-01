@@ -82,6 +82,7 @@ public class WordUtils {
             Element rootElt = document.getRootElement(); // 获取根节点
             Iterator iter = rootElt.elementIterator();// 获取根节点下的子节点head
             List<Map<String, String>> picList = (List<Map<String, String>>) dataMap.get("picList");
+            List<Map<String,String>> videoList = (List<Map<String, String>>) dataMap.get("videoList");
 
             // 遍历Relationships节点
             while (iter.hasNext()) {
@@ -98,9 +99,16 @@ public class WordUtils {
                         }
                     }
                 }
+                if(target.indexOf("video") == 0){
+                    for (Map<String,String> videoMap : videoList) {
+                        if(target.endsWith(videoMap.get("name"))){
+                            videoMap.put("rId",id);
+                        }
+                    }
+                }
             }
             dataMap.put("picList", picList);//覆盖原来的picList;
-
+            dataMap.put("videoList",videoList);
             //================================获取 document.xml 输入流================================
             ByteArrayInputStream documentInput = FreeMarkUtils.getFreemarkerContentInputStream(dataMap, xmlDocument, templatePath);
             //================================获取 document.xml 输入流================================
@@ -253,6 +261,18 @@ public class WordUtils {
         picList.add(picMap);
 
         dataMap.put("picList", picList);
+
+        List<Map<String, String>> videoList = new ArrayList<>();
+
+        Map<String, String> videoMap = new HashMap<>();
+        // 要按顺序
+        videoMap.put("name","https://www.baidu.com");
+        videoList.add(videoMap);
+
+        dataMap.put("picList", picList);
+        dataMap.put("videoList",videoList);
+
+        dataMap.put("video_index",1);
 
         //dataMap.put("generalDescriptionImg",generalDescription.get("img").toString());
         //dataMap.put("generalDescriptionVideo",generalDescription.get("video").toString());
