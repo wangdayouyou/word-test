@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-<Relationship Id="rId8" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="https://www.bilibili.com" TargetMode="External"/>
-<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/>
-<Relationship Id="rId7" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://go.microsoft.com/fwlink/p/?LinkId=255141" TargetMode="External"/>
-<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
-<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
-<Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://go.microsoft.com/fwlink/p/?LinkId=255141" TargetMode="External"/>
-<Relationship Id="rId11" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/>
-<Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="http://go.microsoft.com/fwlink/p/?LinkId=255141" TargetMode="External"/>
-<Relationship Id="rId10" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
-<Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/pic1.png"/>
-<Relationship Id="rId${video_index + 12}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="video/${name}" TargetMode="External"/>
+    <Relationship Id="rId8" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${techParamVideo}" TargetMode="External"/>
+    <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/>
+    <Relationship Id="rId7" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${funcModuleVideo}" TargetMode="External"/>
+    <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+    <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+    <Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${detailVideo}" TargetMode="External"/>
+    <Relationship Id="rId11" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/>
+    <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${generalDescriptionVideo}" TargetMode="External"/>
+    <Relationship Id="rId10" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
+    <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/pic1.jpg"/>
+    <Relationship Id="rId9" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${serviceNeedVideo}" TargetMode="External"/>
+    <#if serviceNeedPicList??>
+    <#list serviceNeedPicList as pic>
+        <Relationship Id="rId${pic_index+12}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/serviceNeed${pic.name}"/>
+    </#list>
+    </#if>
+    <#if detailPicList??>
+    <#list detailPicList as pic>
+        <Relationship Id="rId${pic_index+32}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/detail${pic.name}"/>
+    </#list>
+    </#if>
+    <#if generalDescriptionPicList??>
+    <#list generalDescriptionPicList as pic>
+        <Relationship Id="rId${pic_index+52}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/generalDescription${pic.name}"/>
+    </#list>
+    </#if>
+    <#if funcModulePicList??>
+    <#list funcModulePicList as pic>
+        <Relationship Id="rId${pic_index+72}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/funcModule${pic.name}"/>
+    </#list>
+    </#if>
+    <#if techParamPicList??>
+    <#list techParamPicList as pic>
+        <Relationship Id="rId${pic_index+92}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/techParam${pic.name}"/>
+    </#list>
+    </#if>
 </Relationships>

@@ -326,7 +326,7 @@
                                 <w:sz w:val="36"/>
                                 <w:szCs w:val="36"/>
                             </w:rPr>
-                            <w:t>${serviceDomain}</w:t>
+                            <w:t>serviceDomain</w:t>
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
@@ -358,7 +358,6 @@
                                 <w:sz w:val="36"/>
                                 <w:szCs w:val="36"/>
                             </w:rPr>
-                            <w:lastRenderedPageBreak/>
                             <w:t>总</w:t>
                         </w:r>
                     </w:p>
@@ -443,64 +442,10 @@
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
-                    <w:p w14:paraId="3D7F813B" w14:textId="010C59CD" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
-                        <w:pPr>
-                            <w:jc w:val="center"/>
-                            <w:rPr>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                        </w:pPr>
-                        <w:r>
-                            <w:rPr>
-                                <w:noProof/>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                            <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="0B0818FB"
-                                           wp14:editId="50B313D3">
-                                    <wp:extent cx="4133215" cy="3060065"/>
-                                    <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="1" name="图片 1" descr="cat-g1b157798d_1920"/>
-                                    <wp:cNvGraphicFramePr>
-                                        <a:graphicFrameLocks
-                                                xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-                                                noChangeAspect="1"/>
-                                    </wp:cNvGraphicFramePr>
-                                    <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-                                        <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                            <pic:pic
-                                                    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                                <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                                    <pic:cNvPicPr>
-                                                        <a:picLocks noChangeAspect="1"/>
-                                                    </pic:cNvPicPr>
-                                                </pic:nvPicPr>
-                                                <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
-                                                    <a:stretch>
-                                                        <a:fillRect/>
-                                                    </a:stretch>
-                                                </pic:blipFill>
-                                                <pic:spPr>
-                                                    <a:xfrm>
-                                                        <a:off x="0" y="0"/>
-                                                        <a:ext cx="4133215" cy="3060065"/>
-                                                    </a:xfrm>
-                                                    <a:prstGeom prst="rect">
-                                                        <a:avLst/>
-                                                    </a:prstGeom>
-                                                </pic:spPr>
-                                            </pic:pic>
-                                        </a:graphicData>
-                                    </a:graphic>
-                                </wp:inline>
-                            </w:drawing>
-                        </w:r>
-                    </w:p>
-                    <w:p w14:paraId="51DDC046" w14:textId="7E91D2BB" w:rsidR="00B520D6" w:rsidRDefault="00B520D6">
+                    <#if generalDescriptionPicList??>
+                    <#list generalDescriptionPicList as pic>
+                    <w:p w14:paraId="51DDC046" w14:textId="0DE1D52A" w:rsidR="00B520D6" w:rsidRDefault="00B520D6"
+                         w:rsidP="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -516,11 +461,11 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                             <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="3B4E5109"
-                                           wp14:editId="46879EE9">
+                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="0B0818FB"
+                                           wp14:editId="50B313D3">
                                     <wp:extent cx="4133215" cy="3060065"/>
                                     <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="7" name="图片 7" descr="cat-g1b157798d_1920"/>
+                                    <wp:docPr id="${pic_index+1}" name="图片 ${pic_index+1}" descr="${pic.path}"/>
                                     <wp:cNvGraphicFramePr>
                                         <a:graphicFrameLocks
                                                 xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
@@ -531,13 +476,13 @@
                                             <pic:pic
                                                     xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
                                                 <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
+                                                    <pic:cNvPr id="2" name="Picture ${pic_index+1}" descr="${pic.path}"/>
                                                     <pic:cNvPicPr>
                                                         <a:picLocks noChangeAspect="1"/>
                                                     </pic:cNvPicPr>
                                                 </pic:nvPicPr>
                                                 <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
+                                                    <a:blip r:embed="${pic.rId}"/>
                                                     <a:stretch>
                                                         <a:fillRect/>
                                                     </a:stretch>
@@ -558,7 +503,9 @@
                             </w:drawing>
                         </w:r>
                     </w:p>
-                    <w:p w14:paraId="5F8D9949" w14:textId="4B36F112" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
+                    </#list>
+                    </#if>
+                    <w:p w14:paraId="5F8D9949" w14:textId="4B36F112" w:rsidR="002A02B4" w:rsidRDefault="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -567,7 +514,7 @@
                             </w:rPr>
                         </w:pPr>
                         <w:hyperlink r:id="rId5" w:history="1">
-                            <w:r w:rsidRPr="00B520D6">
+                            <w:r w:rsidR="00B520D6" w:rsidRPr="00B520D6">
                                 <w:rPr>
                                     <w:rStyle w:val="a3"/>
                                     <w:sz w:val="36"/>
@@ -687,64 +634,10 @@
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
-                    <w:p w14:paraId="5274BED8" w14:textId="5BE825E9" w:rsidR="002A02B4" w:rsidRDefault="00016A1D">
-                        <w:pPr>
-                            <w:jc w:val="center"/>
-                            <w:rPr>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                        </w:pPr>
-                        <w:r>
-                            <w:rPr>
-                                <w:noProof/>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                            <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="2A69E06B"
-                                           wp14:editId="48E00BAE">
-                                    <wp:extent cx="4133215" cy="3060065"/>
-                                    <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                    <wp:cNvGraphicFramePr>
-                                        <a:graphicFrameLocks
-                                                xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-                                                noChangeAspect="1"/>
-                                    </wp:cNvGraphicFramePr>
-                                    <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-                                        <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                            <pic:pic
-                                                    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                                <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                                    <pic:cNvPicPr>
-                                                        <a:picLocks noChangeAspect="1"/>
-                                                    </pic:cNvPicPr>
-                                                </pic:nvPicPr>
-                                                <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
-                                                    <a:stretch>
-                                                        <a:fillRect/>
-                                                    </a:stretch>
-                                                </pic:blipFill>
-                                                <pic:spPr>
-                                                    <a:xfrm>
-                                                        <a:off x="0" y="0"/>
-                                                        <a:ext cx="4133215" cy="3060065"/>
-                                                    </a:xfrm>
-                                                    <a:prstGeom prst="rect">
-                                                        <a:avLst/>
-                                                    </a:prstGeom>
-                                                </pic:spPr>
-                                            </pic:pic>
-                                        </a:graphicData>
-                                    </a:graphic>
-                                </wp:inline>
-                            </w:drawing>
-                        </w:r>
-                    </w:p>
-                    <w:p w14:paraId="7403509B" w14:textId="2B23906D" w:rsidR="00B520D6" w:rsidRDefault="00B520D6">
+                    <#if detailPicList??>
+                    <#list detailPicList as pic>
+                    <w:p w14:paraId="7403509B" w14:textId="04BC5F9F" w:rsidR="00B520D6" w:rsidRDefault="00016A1D"
+                         w:rsidP="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -760,11 +653,11 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                             <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="0E686883"
-                                           wp14:editId="567E24EF">
+                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="2A69E06B"
+                                           wp14:editId="48E00BAE">
                                     <wp:extent cx="4133215" cy="3060065"/>
                                     <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="8" name="图片 8" descr="cat-g1b157798d_1920"/>
+                                    <wp:docPr id="${pic_index+1}" name="图片 ${pic_index+1}" descr="${pic.path}"/>
                                     <wp:cNvGraphicFramePr>
                                         <a:graphicFrameLocks
                                                 xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
@@ -775,13 +668,13 @@
                                             <pic:pic
                                                     xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
                                                 <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
+                                                    <pic:cNvPr id="2" name="Picture ${pic_index+1}" descr="${pic.path}"/>
                                                     <pic:cNvPicPr>
                                                         <a:picLocks noChangeAspect="1"/>
                                                     </pic:cNvPicPr>
                                                 </pic:nvPicPr>
                                                 <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
+                                                    <a:blip r:embed="${pic.rId}"/>
                                                     <a:stretch>
                                                         <a:fillRect/>
                                                     </a:stretch>
@@ -802,7 +695,9 @@
                             </w:drawing>
                         </w:r>
                     </w:p>
-                    <w:p w14:paraId="616EC6BD" w14:textId="4AD4BF58" w:rsidR="002A02B4" w:rsidRDefault="00B520D6"
+                    </#list>
+                    </#if>
+                    <w:p w14:paraId="616EC6BD" w14:textId="4AD4BF58" w:rsidR="002A02B4" w:rsidRDefault="003D4BCE"
                          w:rsidP="00B520D6">
                         <w:pPr>
                             <w:jc w:val="center"/>
@@ -812,7 +707,7 @@
                             </w:rPr>
                         </w:pPr>
                         <w:hyperlink r:id="rId6" w:history="1">
-                            <w:r w:rsidRPr="00B520D6">
+                            <w:r w:rsidR="00B520D6" w:rsidRPr="00B520D6">
                                 <w:rPr>
                                     <w:rStyle w:val="a3"/>
                                     <w:sz w:val="36"/>
@@ -849,7 +744,6 @@
                                 <w:sz w:val="36"/>
                                 <w:szCs w:val="36"/>
                             </w:rPr>
-                            <w:lastRenderedPageBreak/>
                             <w:t>功</w:t>
                         </w:r>
                     </w:p>
@@ -932,64 +826,10 @@
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
-                    <w:p w14:paraId="334F698D" w14:textId="58E2CC19" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
-                        <w:pPr>
-                            <w:jc w:val="center"/>
-                            <w:rPr>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                        </w:pPr>
-                        <w:r>
-                            <w:rPr>
-                                <w:noProof/>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                            <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="0FBCB2D4"
-                                           wp14:editId="55251707">
-                                    <wp:extent cx="4133215" cy="3060065"/>
-                                    <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="10" name="图片 10" descr="cat-g1b157798d_1920"/>
-                                    <wp:cNvGraphicFramePr>
-                                        <a:graphicFrameLocks
-                                                xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-                                                noChangeAspect="1"/>
-                                    </wp:cNvGraphicFramePr>
-                                    <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-                                        <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                            <pic:pic
-                                                    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                                <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                                    <pic:cNvPicPr>
-                                                        <a:picLocks noChangeAspect="1"/>
-                                                    </pic:cNvPicPr>
-                                                </pic:nvPicPr>
-                                                <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
-                                                    <a:stretch>
-                                                        <a:fillRect/>
-                                                    </a:stretch>
-                                                </pic:blipFill>
-                                                <pic:spPr>
-                                                    <a:xfrm>
-                                                        <a:off x="0" y="0"/>
-                                                        <a:ext cx="4133215" cy="3060065"/>
-                                                    </a:xfrm>
-                                                    <a:prstGeom prst="rect">
-                                                        <a:avLst/>
-                                                    </a:prstGeom>
-                                                </pic:spPr>
-                                            </pic:pic>
-                                        </a:graphicData>
-                                    </a:graphic>
-                                </wp:inline>
-                            </w:drawing>
-                        </w:r>
-                    </w:p>
-                    <w:p w14:paraId="19DF5ABE" w14:textId="51F4CAEB" w:rsidR="00B520D6" w:rsidRDefault="00B520D6">
+                    <#if funcModulePicList??>
+                    <#list funcModulePicList as pic>
+                    <w:p w14:paraId="19DF5ABE" w14:textId="145E56C4" w:rsidR="00B520D6" w:rsidRDefault="00B520D6"
+                         w:rsidP="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -1005,11 +845,11 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                             <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="37197F33"
-                                           wp14:editId="68319B98">
+                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="0FBCB2D4"
+                                           wp14:editId="55251707">
                                     <wp:extent cx="4133215" cy="3060065"/>
                                     <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="9" name="图片 9" descr="cat-g1b157798d_1920"/>
+                                    <wp:docPr id="${pic_index+1}" name="图片 ${pic_index+1}" descr="${pic.path}"/>
                                     <wp:cNvGraphicFramePr>
                                         <a:graphicFrameLocks
                                                 xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
@@ -1020,13 +860,13 @@
                                             <pic:pic
                                                     xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
                                                 <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
+                                                    <pic:cNvPr id="2" name="Picture ${pic_index+1}" descr="${pic.path}"/>
                                                     <pic:cNvPicPr>
                                                         <a:picLocks noChangeAspect="1"/>
                                                     </pic:cNvPicPr>
                                                 </pic:nvPicPr>
                                                 <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
+                                                    <a:blip r:embed="${pic.rId}"/>
                                                     <a:stretch>
                                                         <a:fillRect/>
                                                     </a:stretch>
@@ -1047,7 +887,9 @@
                             </w:drawing>
                         </w:r>
                     </w:p>
-                    <w:p w14:paraId="3F8E19C2" w14:textId="39214E3C" w:rsidR="002A02B4" w:rsidRDefault="00B520D6"
+                    </#list>
+                    </#if>
+                    <w:p w14:paraId="3F8E19C2" w14:textId="39214E3C" w:rsidR="002A02B4" w:rsidRDefault="003D4BCE"
                          w:rsidP="00B520D6">
                         <w:pPr>
                             <w:jc w:val="center"/>
@@ -1057,7 +899,7 @@
                             </w:rPr>
                         </w:pPr>
                         <w:hyperlink r:id="rId7" w:history="1">
-                            <w:r w:rsidRPr="00B520D6">
+                            <w:r w:rsidR="00B520D6" w:rsidRPr="00B520D6">
                                 <w:rPr>
                                     <w:rStyle w:val="a3"/>
                                     <w:sz w:val="36"/>
@@ -1177,64 +1019,10 @@
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
-                    <w:p w14:paraId="21C38E24" w14:textId="20976EF8" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
-                        <w:pPr>
-                            <w:jc w:val="center"/>
-                            <w:rPr>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                        </w:pPr>
-                        <w:r>
-                            <w:rPr>
-                                <w:noProof/>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                            <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="60176909"
-                                           wp14:editId="7D25721B">
-                                    <wp:extent cx="4133215" cy="3060065"/>
-                                    <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="11" name="图片 11" descr="cat-g1b157798d_1920"/>
-                                    <wp:cNvGraphicFramePr>
-                                        <a:graphicFrameLocks
-                                                xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-                                                noChangeAspect="1"/>
-                                    </wp:cNvGraphicFramePr>
-                                    <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-                                        <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                            <pic:pic
-                                                    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                                <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                                    <pic:cNvPicPr>
-                                                        <a:picLocks noChangeAspect="1"/>
-                                                    </pic:cNvPicPr>
-                                                </pic:nvPicPr>
-                                                <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
-                                                    <a:stretch>
-                                                        <a:fillRect/>
-                                                    </a:stretch>
-                                                </pic:blipFill>
-                                                <pic:spPr>
-                                                    <a:xfrm>
-                                                        <a:off x="0" y="0"/>
-                                                        <a:ext cx="4133215" cy="3060065"/>
-                                                    </a:xfrm>
-                                                    <a:prstGeom prst="rect">
-                                                        <a:avLst/>
-                                                    </a:prstGeom>
-                                                </pic:spPr>
-                                            </pic:pic>
-                                        </a:graphicData>
-                                    </a:graphic>
-                                </wp:inline>
-                            </w:drawing>
-                        </w:r>
-                    </w:p>
-                    <w:p w14:paraId="6C88EEFE" w14:textId="4A9417AA" w:rsidR="00B520D6" w:rsidRDefault="00B520D6">
+                    <#if techParamPicList??>
+                    <#list techParamPicList as pic>
+                    <w:p w14:paraId="6C88EEFE" w14:textId="674B798B" w:rsidR="00B520D6" w:rsidRDefault="00B520D6"
+                         w:rsidP="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -1250,11 +1038,11 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                             <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="2E5CB019"
-                                           wp14:editId="34DC72AB">
+                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="60176909"
+                                           wp14:editId="7D25721B">
                                     <wp:extent cx="4133215" cy="3060065"/>
                                     <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="12" name="图片 12" descr="cat-g1b157798d_1920"/>
+                                    <wp:docPr id="${pic_index+1}" name="图片 ${pic_index+1}" descr="${pic.path}"/>
                                     <wp:cNvGraphicFramePr>
                                         <a:graphicFrameLocks
                                                 xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
@@ -1265,13 +1053,13 @@
                                             <pic:pic
                                                     xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
                                                 <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
+                                                    <pic:cNvPr id="2" name="Picture ${pic_index+1}" descr="${pic.path}"/>
                                                     <pic:cNvPicPr>
                                                         <a:picLocks noChangeAspect="1"/>
                                                     </pic:cNvPicPr>
                                                 </pic:nvPicPr>
                                                 <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
+                                                    <a:blip r:embed="${pic.rId}"/>
                                                     <a:stretch>
                                                         <a:fillRect/>
                                                     </a:stretch>
@@ -1292,7 +1080,9 @@
                             </w:drawing>
                         </w:r>
                     </w:p>
-                    <w:p w14:paraId="6630B260" w14:textId="3C009E8E" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
+                    </#list>
+                    </#if>
+                    <w:p w14:paraId="6630B260" w14:textId="3C009E8E" w:rsidR="002A02B4" w:rsidRDefault="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -1301,7 +1091,7 @@
                             </w:rPr>
                         </w:pPr>
                         <w:hyperlink r:id="rId8" w:history="1">
-                            <w:r w:rsidRPr="00B520D6">
+                            <w:r w:rsidR="00B520D6" w:rsidRPr="00B520D6">
                                 <w:rPr>
                                     <w:rStyle w:val="a3"/>
                                     <w:sz w:val="36"/>
@@ -1338,7 +1128,6 @@
                                 <w:sz w:val="36"/>
                                 <w:szCs w:val="36"/>
                             </w:rPr>
-                            <w:lastRenderedPageBreak/>
                             <w:t>服</w:t>
                         </w:r>
                     </w:p>
@@ -1423,64 +1212,10 @@
                         </w:r>
                         <w:proofErr w:type="spellEnd"/>
                     </w:p>
-                    <w:p w14:paraId="3E381456" w14:textId="3FDB4826" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
-                        <w:pPr>
-                            <w:jc w:val="center"/>
-                            <w:rPr>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                        </w:pPr>
-                        <w:r>
-                            <w:rPr>
-                                <w:noProof/>
-                                <w:sz w:val="36"/>
-                                <w:szCs w:val="36"/>
-                            </w:rPr>
-                            <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="406F3BFD"
-                                           wp14:editId="065D2EDB">
-                                    <wp:extent cx="4133215" cy="3060065"/>
-                                    <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="13" name="图片 13" descr="cat-g1b157798d_1920"/>
-                                    <wp:cNvGraphicFramePr>
-                                        <a:graphicFrameLocks
-                                                xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-                                                noChangeAspect="1"/>
-                                    </wp:cNvGraphicFramePr>
-                                    <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
-                                        <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                            <pic:pic
-                                                    xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                                                <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
-                                                    <pic:cNvPicPr>
-                                                        <a:picLocks noChangeAspect="1"/>
-                                                    </pic:cNvPicPr>
-                                                </pic:nvPicPr>
-                                                <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
-                                                    <a:stretch>
-                                                        <a:fillRect/>
-                                                    </a:stretch>
-                                                </pic:blipFill>
-                                                <pic:spPr>
-                                                    <a:xfrm>
-                                                        <a:off x="0" y="0"/>
-                                                        <a:ext cx="4133215" cy="3060065"/>
-                                                    </a:xfrm>
-                                                    <a:prstGeom prst="rect">
-                                                        <a:avLst/>
-                                                    </a:prstGeom>
-                                                </pic:spPr>
-                                            </pic:pic>
-                                        </a:graphicData>
-                                    </a:graphic>
-                                </wp:inline>
-                            </w:drawing>
-                        </w:r>
-                    </w:p>
-                    <w:p w14:paraId="5A6BA34F" w14:textId="3CA359B2" w:rsidR="00B520D6" w:rsidRDefault="00B520D6">
+                    <#if serviceNeedPicList??>
+                    <#list serviceNeedPicList as pic>
+                    <w:p w14:paraId="5A6BA34F" w14:textId="45DC443D" w:rsidR="00B520D6" w:rsidRDefault="00B520D6"
+                         w:rsidP="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -1496,11 +1231,11 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                             <w:drawing>
-                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="61B4D4D5"
-                                           wp14:editId="7155E10B">
+                                <wp:inline distT="0" distB="0" distL="114300" distR="114300" wp14:anchorId="406F3BFD"
+                                           wp14:editId="065D2EDB">
                                     <wp:extent cx="4133215" cy="3060065"/>
                                     <wp:effectExtent l="0" t="0" r="635" b="6985"/>
-                                    <wp:docPr id="14" name="图片 14" descr="cat-g1b157798d_1920"/>
+                                    <wp:docPr id="${pic_index+1}" name="图片 ${pic_index+1}" descr="${pic.path}"/>
                                     <wp:cNvGraphicFramePr>
                                         <a:graphicFrameLocks
                                                 xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
@@ -1511,13 +1246,13 @@
                                             <pic:pic
                                                     xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
                                                 <pic:nvPicPr>
-                                                    <pic:cNvPr id="2" name="图片 2" descr="cat-g1b157798d_1920"/>
+                                                    <pic:cNvPr id="2" name="Picture ${pic_index+1}" descr="${pic.path}"/>
                                                     <pic:cNvPicPr>
                                                         <a:picLocks noChangeAspect="1"/>
                                                     </pic:cNvPicPr>
                                                 </pic:nvPicPr>
                                                 <pic:blipFill>
-                                                    <a:blip r:embed="rId4"/>
+                                                    <a:blip r:embed="${pic.rId}"/>
                                                     <a:stretch>
                                                         <a:fillRect/>
                                                     </a:stretch>
@@ -1538,7 +1273,9 @@
                             </w:drawing>
                         </w:r>
                     </w:p>
-                    <w:p w14:paraId="0870FACA" w14:textId="7AEE7A41" w:rsidR="002A02B4" w:rsidRDefault="00B520D6">
+                    </#list>
+                    </#if>
+                    <w:p w14:paraId="0870FACA" w14:textId="7AEE7A41" w:rsidR="002A02B4" w:rsidRDefault="003D4BCE">
                         <w:pPr>
                             <w:jc w:val="center"/>
                             <w:rPr>
@@ -1546,8 +1283,8 @@
                                 <w:szCs w:val="36"/>
                             </w:rPr>
                         </w:pPr>
-                        <w:hyperlink r:id="rId${video_index+12}" w:history="1">
-                            <w:r w:rsidRPr="00B520D6">
+                        <w:hyperlink r:id="rId9" w:history="1">
+                            <w:r w:rsidR="00B520D6" w:rsidRPr="00B520D6">
                                 <w:rPr>
                                     <w:rStyle w:val="a3"/>
                                     <w:sz w:val="36"/>
